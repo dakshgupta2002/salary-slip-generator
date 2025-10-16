@@ -52,8 +52,14 @@ app.post('/generate', upload.single('file'), async (req, res) => {
       return res.status(400).json({ error: 'Unsupported file format' });
     }
 
-    const workbook = XLSX.readFile(req.file.path);
-    const data = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]]);
+    let data;
+    try {
+      const workbook = XLSX.readFile(req.file.path);
+      data = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]]);
+    } catch (error) {
+      console.error('File parsing error:', error.message);
+      return res.status(400).json({ error: 'Invalid file format. Please ensure it\'s a valid Excel or CSV file.' });
+    }
     
     if (!data.length) {
       return res.status(400).json({ error: 'No data found in file' });
