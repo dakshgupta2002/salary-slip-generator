@@ -98,19 +98,19 @@
                 <hr />
                 <div>
                     <div class="value">
-                        <span>BASIC</span> <span>{{basic}}</span>
+                        <span>BASIC</span> <span>{{default basic 0}}</span>
                     </div>
                     <div class="value">
                         <span>Special Allowance</span>
-                        <span>{{specialAllowance}}</span>
+                        <span>{{default specialAllowance 0}}</span>
                     </div>
                     <div class="value">
                         <span>Reimbursement</span>
-                        <span>{{reimburse}}</span>
+                        <span>{{default reimburse 0}}</span>
                     </div>
                 </div>
                 <hr />
-                <p>Total (Rs.) {{add basic specialAllowance reimburse}}</p>
+                <p>Total (Rs.) {{add (default basic 0) (default specialAllowance 0) (default reimburse 0)}}</p>
             </div>
             
             <div class="deduction records">
@@ -121,23 +121,23 @@
                 <hr />
                 <div>
                     <div class="value">
-                        <span>Provident Fund</span> <span>{{providentFund}}</span>
+                        <span>Provident Fund</span> <span>{{default providentFund 0}}</span>
                     </div>
                     <div class="value">
-                        <span>Employee State Insurance / Health Insurance</span> <span>{{insurance}}</span>
+                        <span>Employee State Insurance / Health Insurance</span> <span>{{default insurance 0}}</span>
                     </div>
                     <div class="value">
-                        <span>Less: Advance paid if any</span> <span>{{advancePaid}}</span>
+                        <span>Less: Advance paid if any</span> <span>{{default advancePaid 0}}</span>
                     </div>
                     <br/>
                 </div>
                 <hr />
-                <p>Total (Rs.) {{add providentFund insurance advancePaid}}</p>
+                <p>Total (Rs.) {{add (default providentFund 0) (default insurance 0) (default advancePaid 0)}}</p>
             </div>
         </div>
 
         <h4 class="amount">
-            Net Amount: {{subtract (add basic specialAllowance reimburse) (add providentFund insurance advancePaid)}}
+            Net Amount: {{subtract (add (default basic 0) (default specialAllowance 0) (default reimburse 0)) (add (default providentFund 0) (default insurance 0) (default advancePaid 0))}}
         </h4>
     </div>
 </body>

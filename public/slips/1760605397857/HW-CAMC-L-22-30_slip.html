@@ -1,0 +1,145 @@
+<html><head><style>body{font-family:Arial;}</style></head><body><!DOCTYPE html>
+<html>
+<head>
+    <title>RAHUL GUPTA-JULY-HW-CAMC-L-22-30</title>
+    <style>
+        .body{
+            width: 180mm;
+            height: 297mm;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10mm 15mm 10mm 15mm;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 17.5px;
+        }
+
+        .watermark, .info{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo{
+            height: 6em;
+        }
+
+        .details, .salary{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: baseline;
+        }
+
+        .detailBox, .records{
+            border: 3px solid black;
+            width: 50%;
+        }
+
+        .detailBoxOne, .earning{
+            border-right: none;
+        }
+
+        .records, .detailBox{
+            padding: 10px;
+        }
+
+        .amount{
+            border: 3px solid black;
+            border-top: none;
+            text-align: right;
+            padding: 10px;
+        }
+
+        .value{
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        <div class="watermark">
+            <div>
+                <b>3D Consult Services (opc) Private Limited</b>
+                <br />
+                305, Sector 8, opp Gymkhana Club, Karnal - 132001
+            </div>
+            <img src="data:image/jpeg;base64,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" alt="3d" class="logo" />
+        </div>
+        
+        <div>
+            <p>Payslip for the month of : JULY - 2025</p>
+            <div class="details">
+                <div class="detailBox detailBoxOne">
+                    Employee Code: HW-CAMC-L-22-30 <br />
+                    Name: RAHUL GUPTA <br />
+                    Designation: ASSISTANT TECHNICIAN <br />
+                    Department: MAINTENANCE <br />
+                    Location: LUCKNOW AIRPORT
+                </div>
+                <div class="detailBox">
+                    PF Account Number: HRKNL14622820000010143 <br />
+                    UAN: 100509908988 <br />
+                    PAN Number: BPTPG1279N <br />
+                    Bank Details: UTIB-919010082684848 <br />
+                    ESI Number: N/A
+                </div>
+            </div>
+        </div>
+        <br />
+        
+        <div class="salary">
+            <div class="earning records">
+                <div class="info">
+                    <p><b>Earnings</b></p>
+                    <p><b>Amount (Rs)</b></p>
+                </div>
+                <hr />
+                <div>
+                    <div class="value">
+                        <span>BASIC</span> <span>15100</span>
+                    </div>
+                    <div class="value">
+                        <span>Special Allowance</span>
+                        <span>8118</span>
+                    </div>
+                    <div class="value">
+                        <span>Reimbursement</span>
+                        <span>0</span>
+                    </div>
+                </div>
+                <hr />
+                <p>Total (Rs.) 23218</p>
+            </div>
+            
+            <div class="deduction records">
+                <div class="info">
+                    <p><b>Deduction</b></p>
+                    <p><b>Amount (Rs)</b></p>
+                </div>
+                <hr />
+                <div>
+                    <div class="value">
+                        <span>Provident Fund</span> <span>1812</span>
+                    </div>
+                    <div class="value">
+                        <span>Employee State Insurance / Health Insurance</span> <span>174</span>
+                    </div>
+                    <div class="value">
+                        <span>Less: Advance paid if any</span> <span></span>
+                    </div>
+                    <br/>
+                </div>
+                <hr />
+                <p>Total (Rs.) 1986</p>
+            </div>
+        </div>
+
+        <h4 class="amount">
+            Net Amount: 21232
+        </h4>
+    </div>
+</body>
+</html>
+</body></html>

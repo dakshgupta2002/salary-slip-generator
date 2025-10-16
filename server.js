@@ -20,6 +20,10 @@ Handlebars.registerHelper('subtract', function(a, b) {
   return (parseFloat(a) || 0) - (parseFloat(b) || 0);
 });
 
+Handlebars.registerHelper('default', function(value, defaultValue) {
+  return value || defaultValue || 0;
+});
+
 // Ensure directories exist
 ['uploads'].forEach(dir => {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
