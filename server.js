@@ -61,23 +61,65 @@ app.post('/generate', upload.single('file'), async (req, res) => {
     }
 
     const template = Handlebars.compile(fs.readFileSync('template.hbs', 'utf8'));
+    const timestamp = Date.now();
     
-    // Generate HTML for all employees (fast, no timeout)
-    let allHtml = '<html><head><style>body{font-family:Arial;} .page-break{page-break-after:always;}</style></head><body>';
+    // Create output directory
+    const outputDir = `public/slips/${timestamp}`;
+    if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
     
+    // Generate individual HTML files
+    const employeeLinks = [];
     data.forEach((employee, index) => {
       employee.logoUrl = logoDataUrl;
-      allHtml += template(employee);
-      if (index < data.length - 1) allHtml += '<div class="page-break"></div>';
+      const html = `<html><head><style>body{font-family:Arial;}</style></head><body>${template(employee)}</body></html>`;
+      const filename = `${employee.employeeId || employee.name || index}_slip.html`;
+      fs.writeFileSync(`${outputDir}/${filename}`, html);
+      employeeLinks.push({
+        name: employee.name || `Employee ${index + 1}`,
+        id: employee.employeeId || index + 1,
+        filename: filename
+      });
     });
     
-    allHtml += '</body></html>';
+    // Generate index page
+    const indexHtml = `
+    <html>
+    <head>
+      <title>Salary Slips - ${data.length} Employees</title>
+      <style>
+        body { font-family: Arial; margin: 40px; }
+        h1 { color: #333; }
+        .employee-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; }
+        .employee-card { border: 1px solid #ddd; padding: 15px; border-radius: 5px; }
+        .employee-card a { text-decoration: none; color: #007bff; font-weight: bold; }
+        .employee-card a:hover { text-decoration: underline; }
+        .stats { background: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+      </style>
+    </head>
+    <body>
+      <h1>Salary Slips Generated</h1>
+      <div class="stats">
+        <strong>Total Employees:</strong> ${data.length} | 
+        <strong>Generated:</strong> ${new Date().toLocaleString()}
+      </div>
+      <div class="employee-list">
+        ${employeeLinks.map(emp => `
+          <div class="employee-card">
+            <a href="/slips/${timestamp}/${emp.filename}" target="_blank">
+              ${emp.name}
+            </a>
+            <div style="color: #666; font-size: 0.9em;">ID: ${emp.id}</div>
+          </div>
+        `).join('')}
+      </div>
+    </body>
+    </html>`;
     
     // Clean up uploaded file
     fs.unlinkSync(req.file.path);
     
     res.setHeader('Content-Type', 'text/html');
-    res.send(allHtml);
+    res.send(indexHtml);
 
   } catch (error) {
     console.error('Error:', error);
