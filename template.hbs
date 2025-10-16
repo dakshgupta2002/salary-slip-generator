@@ -126,17 +126,17 @@
                         <span>Employee State Insurance / Health Insurance</span> <span>{{insurance}}</span>
                     </div>
                     <div class="value">
-                        <span>Less: Advance paid if any</span> <span>0</span>
+                        <span>Less: Advance paid if any</span> <span>{{advancePaid}}</span>
                     </div>
                     <br/>
                 </div>
                 <hr />
-                <p>Total (Rs.) {{add providentFund insurance}}</p>
+                <p>Total (Rs.) {{add providentFund insurance advancePaid}}</p>
             </div>
         </div>
 
         <h4 class="amount">
-            Net Amount: {{subtract (add basic specialAllowance reimburse) (add providentFund insurance)}}
+            Net Amount: {{subtract (add basic specialAllowance reimburse) (add providentFund insurance advancePaid)}}
         </h4>
     </div>
 </body>
