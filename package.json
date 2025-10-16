@@ -1,0 +1,26 @@
+{
+  "name": "salary-slip-generator",
+  "version": "1.0.0",
+  "description": "Generate PDF salary slips from Excel data",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "echo 'No build step required'"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "multer": "^1.4.4",
+    "xlsx": "^0.18.5",
+    "puppeteer": "^13.7.0",
+    "handlebars": "^4.7.7",
+    "archiver": "^5.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

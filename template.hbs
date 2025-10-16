@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .body{
+            width: 180mm;
+            height: 297mm;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10mm 15mm 10mm 15mm;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 17.5px;
+        }
+
+        .watermark, .info{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo{
+            height: 6em;
+        }
+
+        .details, .salary{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: baseline;
+        }
+
+        .detailBox, .records{
+            border: 3px solid black;
+            width: 50%;
+        }
+
+        .detailBoxOne, .earning{
+            border-right: none;
+        }
+
+        .records, .detailBox{
+            padding: 10px;
+        }
+
+        .amount{
+            border: 3px solid black;
+            border-top: none;
+            text-align: right;
+            padding: 10px;
+        }
+
+        .value{
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        <div class="watermark">
+            <div>
+                <b>3D Consult Services (opc) Private Limited</b>
+                <br />
+                305, Sector 8, opp Gymkhana Club, Karnal - 132001
+            </div>
+            <img src="{{logoUrl}}" alt="3d" class="logo" />
+        </div>
+        
+        <div>
+            <p>Payslip for the month of : {{month}} - {{year}}</p>
+            <div class="details">
+                <div class="detailBox detailBoxOne">
+                    Employee Code: {{code}} <br />
+                    Name: {{name}} <br />
+                    Designation: {{designation}} <br />
+                    Department: {{department}} <br />
+                    Location: {{location}}
+                </div>
+                <div class="detailBox">
+                    PF Account Number: {{PFAccount}} <br />
+                    UAN: {{UAN}} <br />
+                    PAN Number: {{PAN}} <br />
+                    Bank Details: {{bank}} <br />
+                    ESI Number: {{ESI}}
+                </div>
+            </div>
+        </div>
+        <br />
+        
+        <div class="salary">
+            <div class="earning records">
+                <div class="info">
+                    <p><b>Earnings</b></p>
+                    <p><b>Amount (Rs)</b></p>
+                </div>
+                <hr />
+                <div>
+                    <div class="value">
+                        <span>BASIC</span> <span>{{basic}}</span>
+                    </div>
+                    <div class="value">
+                        <span>Special Allowance</span>
+                        <span>{{specialAllowance}}</span>
+                    </div>
+                    <div class="value">
+                        <span>Reimbursement</span>
+                        <span>{{reimburse}}</span>
+                    </div>
+                </div>
+                <hr />
+                <p>Total (Rs.) {{add basic specialAllowance reimburse}}</p>
+            </div>
+            
+            <div class="deduction records">
+                <div class="info">
+                    <p><b>Deduction</b></p>
+                    <p><b>Amount (Rs)</b></p>
+                </div>
+                <hr />
+                <div>
+                    <div class="value">
+                        <span>Provident Fund</span> <span>{{providentFund}}</span>
+                    </div>
+                    <div class="value">
+                        <span>Employee State Insurance / Health Insurance</span> <span>{{insurance}}</span>
+                    </div>
+                    <div class="value">
+                        <span>Less: Advance paid if any</span> <span>0</span>
+                    </div>
+                    <br/>
+                </div>
+                <hr />
+                <p>Total (Rs.) {{add providentFund insurance}}</p>
+            </div>
+        </div>
+
+        <h4 class="amount">
+            Net Amount: {{subtract (add basic specialAllowance reimburse) (add providentFund insurance)}}
+        </h4>
+    </div>
+</body>
+</html>
