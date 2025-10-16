@@ -26,14 +26,33 @@ Open http://localhost:3000
 2. Upload file via web interface
 3. Download ZIP containing all PDF salary slips
 
-## File Format
+## Required Columns (Excel/CSV):
 
-**Required columns:**
-- employeeId, name, designation, department
-- month, year
-- basicSalary, hra, specialAllowance, otherAllowances, grossSalary
-- pf, professionalTax, incomeTax, otherDeductions, totalDeductions
-- netSalary
+**Employee Information:**
+- `code` - Employee Code (e.g., HW-122, 3D-DIAL-008)
+- `name` - Employee Name
+- `designation` - Job Title/Position
+- `department` - Department Name
+- `location` - Work Location
+- `month` - Salary Month (e.g., SEPTEMBER)
+- `year` - Salary Year (e.g., 2025)
+
+**Bank & Compliance Details:**
+- `PFAccount` - Provident Fund Account Number
+- `UAN` - Universal Account Number
+- `PAN` - PAN Card Number
+- `bank` - Bank Account Details
+- `ESI` - Employee State Insurance Number
+
+**Earnings:**
+- `basic` - Basic Salary Amount
+- `specialAllowance` - Special Allowance Amount
+- `reimburse` - Reimbursement Amount
+
+**Deductions:**
+- `providentFund` - PF Deduction Amount
+- `insurance` - ESI/Health Insurance Amount
+- `advancePaid` - Advance Payment Deducted (optional, defaults to 0)
 
 ## Features
 
