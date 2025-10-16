@@ -72,11 +72,11 @@ app.post('/generate', upload.single('file'), async (req, res) => {
     data.forEach((employee, index) => {
       employee.logoUrl = logoDataUrl;
       const html = `<html><head><style>body{font-family:Arial;}</style></head><body>${template(employee)}</body></html>`;
-      const filename = `${employee.employeeId || employee.name || index}_slip.html`;
+      const filename = `${employee.code || employee.name || index}_slip.html`;
       fs.writeFileSync(`${outputDir}/${filename}`, html);
       employeeLinks.push({
         name: employee.name || `Employee ${index + 1}`,
-        id: employee.employeeId || index + 1,
+        id: employee.code || employee.employeeId || `EMP-${index + 1}`,
         filename: filename
       });
     });
