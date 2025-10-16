@@ -75,11 +75,17 @@
                 });
 
                 if (response.ok) {
-                    const data = await response.json();
+                    const htmlContent = await response.text();
+                    // Open HTML in new window for printing
+                    const newWindow = window.open('', '_blank');
+                    newWindow.document.write(htmlContent);
+                    newWindow.document.close();
+                    
                     statusDiv.className = 'status success';
-                    statusDiv.innerHTML = `✅ ${data.message} <br><a href="${data.downloadUrl}" target="_blank">View Generated Files</a>`;
+                    statusDiv.innerHTML = '✅ Salary slips generated! Check the new window to print as PDF.';
                 } else {
-                    throw new Error('Generation failed');
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || 'Generation failed');
                 }
             } catch (error) {
                 statusDiv.className = 'status error';
