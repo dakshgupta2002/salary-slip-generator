@@ -108,7 +108,7 @@ app.post('/generate', upload.single('file'), async (req, res) => {
             <a href="/slips/${timestamp}/${emp.filename}" target="_blank">
               ${emp.name}
             </a>
-            <div style="color: #666; font-size: 0.9em;">ID: ${emp.id}</div>
+            <div style="color: #666; font-size: 0.9em;">Employee Code: ${emp.id}</div>
           </div>
         `).join('')}
       </div>
