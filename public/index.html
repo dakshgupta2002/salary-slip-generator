@@ -24,24 +24,39 @@
         
         <div class="columns">
             <h3>Required Columns (Excel/CSV):</h3>
+            
+            <h4>Employee Information:</h4>
             <ul>
-                <li><strong>employeeId</strong> - Employee ID</li>
+                <li><strong>code</strong> - Employee Code (e.g., HW-122, 3D-DIAL-008)</li>
                 <li><strong>name</strong> - Employee Name</li>
-                <li><strong>designation</strong> - Job Title</li>
-                <li><strong>department</strong> - Department</li>
-                <li><strong>month</strong> - Salary Month</li>
-                <li><strong>year</strong> - Salary Year</li>
-                <li><strong>basicSalary</strong> - Basic Salary Amount</li>
-                <li><strong>hra</strong> - House Rent Allowance</li>
-                <li><strong>specialAllowance</strong> - Special Allowance</li>
-                <li><strong>otherAllowances</strong> - Other Allowances</li>
-                <li><strong>grossSalary</strong> - Gross Salary</li>
-                <li><strong>pf</strong> - Provident Fund Deduction</li>
-                <li><strong>professionalTax</strong> - Professional Tax</li>
-                <li><strong>incomeTax</strong> - Income Tax</li>
-                <li><strong>otherDeductions</strong> - Other Deductions</li>
-                <li><strong>totalDeductions</strong> - Total Deductions</li>
-                <li><strong>netSalary</strong> - Net Salary</li>
+                <li><strong>designation</strong> - Job Title/Position</li>
+                <li><strong>department</strong> - Department Name</li>
+                <li><strong>location</strong> - Work Location</li>
+                <li><strong>month</strong> - Salary Month (e.g., SEPTEMBER)</li>
+                <li><strong>year</strong> - Salary Year (e.g., 2025)</li>
+            </ul>
+            
+            <h4>Bank & Compliance Details:</h4>
+            <ul>
+                <li><strong>PFAccount</strong> - Provident Fund Account Number</li>
+                <li><strong>UAN</strong> - Universal Account Number</li>
+                <li><strong>PAN</strong> - PAN Card Number</li>
+                <li><strong>bank</strong> - Bank Account Details</li>
+                <li><strong>ESI</strong> - Employee State Insurance Number</li>
+            </ul>
+            
+            <h4>Earnings:</h4>
+            <ul>
+                <li><strong>basic</strong> - Basic Salary Amount</li>
+                <li><strong>specialAllowance</strong> - Special Allowance Amount</li>
+                <li><strong>reimburse</strong> - Reimbursement Amount</li>
+            </ul>
+            
+            <h4>Deductions:</h4>
+            <ul>
+                <li><strong>providentFund</strong> - PF Deduction Amount</li>
+                <li><strong>insurance</strong> - ESI/Health Insurance Amount</li>
+                <li><strong>advancePaid</strong> - Advance Payment Deducted (optional, defaults to 0)</li>
             </ul>
         </div>
         
