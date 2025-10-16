@@ -89,8 +89,8 @@ app.post('/generate', upload.single('file'), async (req, res) => {
       <style>
         body { font-family: Arial; margin: 40px; }
         h1 { color: #333; }
-        .employee-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; }
-        .employee-card { border: 1px solid #ddd; padding: 15px; border-radius: 5px; }
+        .employee-list { list-style: none; padding: 0; }
+        .employee-card { border: 1px solid #ddd; padding: 15px; border-radius: 5px; margin-bottom: 10px; }
         .employee-card a { text-decoration: none; color: #007bff; font-weight: bold; }
         .employee-card a:hover { text-decoration: underline; }
         .stats { background: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
@@ -102,16 +102,16 @@ app.post('/generate', upload.single('file'), async (req, res) => {
         <strong>Total Employees:</strong> ${data.length} | 
         <strong>Generated:</strong> ${new Date().toLocaleString()}
       </div>
-      <div class="employee-list">
+      <ul class="employee-list">
         ${employeeLinks.map(emp => `
-          <div class="employee-card">
+          <li class="employee-card">
             <a href="/slips/${timestamp}/${emp.filename}" target="_blank">
               ${emp.name}
             </a>
             <div style="color: #666; font-size: 0.9em;">Employee Code: ${emp.id}</div>
-          </div>
+          </li>
         `).join('')}
-      </div>
+      </ul>
     </body>
     </html>`;
     
